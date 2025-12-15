@@ -27,7 +27,7 @@ This is the easiest way - Vercel automatically deploys when you push to GitHub.
 3. **Environment Variables to Add in Vercel**:
    ```
    GOOGLE_CLOUD_PROJECT=amazon-ppc-474902
-   BIGQUERY_DATASET=amazon_ppc
+   BIGQUERY_DATASET=amazon_ppc_data
    GCP_CREDENTIALS=<your service account JSON>
    ```
 
@@ -69,7 +69,7 @@ gcloud run deploy ppc-dashboard \
   --platform managed \
   --region us-central1 \
   --allow-unauthenticated \
-  --set-env-vars "GOOGLE_CLOUD_PROJECT=amazon-ppc-474902,BIGQUERY_DATASET=amazon_ppc"
+  --set-env-vars "GOOGLE_CLOUD_PROJECT=amazon-ppc-474902,BIGQUERY_DATASET=amazon_ppc_data"
 ```
 
 **Note:** Requires a Dockerfile (I can create one if needed)
@@ -122,7 +122,7 @@ From your local computer (with browser access):
 5. Add Environment Variables (from Settings):
    ```
    GOOGLE_CLOUD_PROJECT=amazon-ppc-474902
-   BIGQUERY_DATASET=amazon_ppc
+   BIGQUERY_DATASET=amazon_ppc_data
    ```
 6. Deploy!
 

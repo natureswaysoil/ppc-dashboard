@@ -152,7 +152,7 @@ GCP_PROJECT=amazon-ppc-474902
 GOOGLE_CLOUD_PROJECT=amazon-ppc-474902
 
 # BigQuery Configuration
-BQ_DATASET_ID=amazon_ppc
+BQ_DATASET_ID=amazon_ppc_data
 BQ_LOCATION=us-east4
 ```
 
@@ -203,7 +203,7 @@ https://your-dashboard-url.vercel.app/api/bigquery-data?table=optimization_resul
   "data": [...],
   "metadata": {
     "projectId": "amazon-ppc-474902",
-    "datasetId": "amazon_ppc",
+    "datasetId": "amazon_ppc_data",
     "table": "optimization_results",
     "rowCount": 1
   }
@@ -273,7 +273,7 @@ You should see:
 2. Verify optimizer is writing to BigQuery (check optimizer logs)
 3. Query BigQuery directly to confirm data exists:
    ```sql
-   SELECT * FROM `amazon-ppc-474902.amazon_ppc.optimization_results` LIMIT 10
+   SELECT * FROM `amazon-ppc-474902.amazon_ppc_data.optimization_results` LIMIT 10
    ```
 4. Check optimizer configuration has `bigquery.enabled: true`
 
@@ -302,7 +302,7 @@ You should see:
                      ↓
 ┌─────────────────────────────────────────────────────────────┐
 │  Google BigQuery                                              │
-│  Dataset: amazon_ppc                                          │
+│  Dataset: amazon_ppc_data                                     │
 │  Tables:                                                      │
 │  - optimization_results (main metrics)                        │
 │  - campaign_details (campaign breakdowns)                     │
@@ -342,7 +342,7 @@ You should see:
 |----------|-------------|---------|
 | `GCP_PROJECT` | Google Cloud project ID | `amazon-ppc-474902` |
 | `GOOGLE_CLOUD_PROJECT` | Alternative project ID variable | `amazon-ppc-474902` |
-| `BQ_DATASET_ID` | BigQuery dataset name | `amazon_ppc` |
+| `BQ_DATASET_ID` | BigQuery dataset name | `amazon_ppc_data` |
 | `BQ_LOCATION` | BigQuery dataset location | `us-east4` |
 
 ### Alternative Credential Methods
@@ -369,7 +369,7 @@ gcloud auth list
 
 # Query BigQuery
 bq query --use_legacy_sql=false \
-  'SELECT * FROM `amazon-ppc-474902.amazon_ppc.optimization_results` LIMIT 10'
+  'SELECT * FROM `amazon-ppc-474902.amazon_ppc_data.optimization_results` LIMIT 10'
 ```
 
 ### Check Dashboard Endpoints
