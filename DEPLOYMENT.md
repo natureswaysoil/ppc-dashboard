@@ -40,7 +40,7 @@ DASHBOARD_API_KEY=your_dashboard_api_key_here
 
 **Required for BigQuery Integration:**
 ```
-BQ_DATASET_ID=amazon_ppc
+BQ_DATASET_ID=amazon_ppc_data
 BQ_LOCATION=us-east4
 ```
 
@@ -60,7 +60,7 @@ DATABASE_URL=your_database_url_here
 **Notes:**
 - The `DASHBOARD_API_KEY` must match the key configured in the Google Cloud Function's Secret Manager.
 - The `GCP_PROJECT` and `GOOGLE_CLOUD_PROJECT` are optional if you provide service account credentials (they will be auto-extracted from the service account JSON).
-- The `BQ_DATASET_ID` should match the BigQuery dataset created by `setup-bigquery.sh` (default: `amazon_ppc`).
+- The `BQ_DATASET_ID` should match the BigQuery dataset created by `setup-bigquery.sh` (default: `amazon_ppc_data`).
 - For Google Cloud authentication, you'll need to configure `GCP_SERVICE_ACCOUNT_KEY` or `GOOGLE_APPLICATION_CREDENTIALS` (see Step 3a below).
 
 ### Step 3a: Configure Google Cloud Service Account (for BigQuery)
@@ -277,7 +277,7 @@ To fix:
    ```
    GCP_PROJECT=amazon-ppc-474902
    GOOGLE_CLOUD_PROJECT=amazon-ppc-474902
-   BQ_DATASET_ID=amazon_ppc
+   BQ_DATASET_ID=amazon_ppc_data
    BQ_LOCATION=us-east4
    ```
    
@@ -325,7 +325,7 @@ To fix:
 
 1. Check Vercel function logs for detailed error messages
 2. Verify your service account JSON is valid: https://jsonlint.com/
-3. Ensure the BigQuery dataset was created: `bq ls amazon-ppc-474902:amazon_ppc`
+3. Ensure the BigQuery dataset was created: `bq ls amazon-ppc-474902:amazon_ppc_data`
 4. Contact support with the output from `/api/config-check`
 
 ## Viewing Logs

@@ -24,7 +24,7 @@ GCP_PROJECT=your-project-id
 GOOGLE_CLOUD_PROJECT=your-project-id
 
 # BigQuery Configuration
-BQ_DATASET_ID=amazon_ppc
+BQ_DATASET_ID=amazon_ppc_data
 BQ_LOCATION=us-east4
 
 # Dashboard API Key (must match optimizer)
@@ -64,7 +64,7 @@ Visit these diagnostic endpoints:
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `BQ_DATASET_ID` | BigQuery dataset name | `amazon_ppc` |
+| `BQ_DATASET_ID` | BigQuery dataset name | `amazon_ppc_data` |
 | `BQ_LOCATION` | BigQuery dataset location | `us-east4` |
 | `NODE_ENV` | Node environment | `production` |
 
@@ -230,7 +230,7 @@ gcloud projects add-iam-policy-binding your-project-id \
 1. Ensure optimizer has run at least once
 2. Run BigQuery setup script from repository root:
    ```bash
-   ./setup-bigquery.sh your-project-id amazon_ppc us-east4
+   ./setup-bigquery.sh your-project-id amazon_ppc_data us-east4
    ```
 
 ### Issue: Dashboard shows loading but no data
@@ -239,7 +239,7 @@ gcloud projects add-iam-policy-binding your-project-id \
 
 1. **No data in BigQuery:**
    - Run optimizer: `curl -X POST $FUNCTION_URL -H "Authorization: Bearer $(gcloud auth print-identity-token)"`
-   - Verify data: `bq query 'SELECT COUNT(*) FROM \`project.amazon_ppc.optimization_results\`'`
+   - Verify data: `bq query 'SELECT COUNT(*) FROM \`project.amazon_ppc_data.optimization_results\`'`
 
 2. **Credentials issue:**
    - Visit `/api/credentials-debug`

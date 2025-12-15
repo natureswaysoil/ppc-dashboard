@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 export async function GET(request: NextRequest) {
   try {
     // Get configuration from environment variables with fallback to default
-    const datasetId = process.env.BQ_DATASET_ID || 'amazon_ppc';
+    const datasetId = process.env.BQ_DATASET_ID || 'amazon_ppc_data';
     const location = process.env.BQ_LOCATION || 'us-east4';
     const DEFAULT_PROJECT_ID = 'amazon-ppc-474902';
     
